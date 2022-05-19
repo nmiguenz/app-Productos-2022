@@ -1,0 +1,99 @@
+
+    
+<div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="../../../assets/box.png" alt="" width="72" height="57">
+        <h2>Alta Productos</h2>
+        <!-- <p class="lead">Below is an example form built entirely with Bootstrapâ€™s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> -->
+      </div>
+  
+      <div class="row g-5">
+
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Lista paises</span>
+              </h4>
+              <div>
+                  <app-lista-paises (paisSeleccionado)="obtenerNacionalidadProdcuto($event)"></app-lista-paises>
+              </div>
+        </div>
+        
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Ingreso de producto</h4>
+          <form class="needs-validation" [formGroup]="productGroup" (submit)="altaProducto()" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="codigo" class="form-label">Codigo</label>
+                <input type="text" class="form-control" id="codigo" placeholder="" formControlName="codigo">
+                <small  *ngIf="productGroup.controls.codigo.errors?.required && productGroup.controls.codigo.touched">El código es requerido</small>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" id="descripcion" placeholder="" formControlName="descripcion">
+                <small  *ngIf="productGroup.controls.descripcion.errors?.required && productGroup.controls.descripcion.touched">El código es requerido</small>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" placeholder="" formControlName="precio">
+                <small  *ngIf="productGroup.controls.precio.errors?.required && productGroup.controls.precio.touched">El precio es requerido</small>
+                <small  *ngIf="productGroup.controls.precio.errors?.min && productGroup.controls.precio.touched">El precio debe ser mayor a 30 pesos</small>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" placeholder="" formControlName="stock">
+                <small  *ngIf="productGroup.controls.stock.errors?.required && productGroup.controls.stock.touched">El stock es requerido</small>
+                <small  *ngIf="productGroup.controls.stock.errors?.min && productGroup.controls.stock.touched">El stock no puede ser menor a 1</small>
+              </div>
+
+              <div class="col-sm-9">
+                <label for="nacionalidad">Nacionalidad</label>
+                <input type="text" class="form-control" id="nacionalidad" placeholder="Ingrese una nacionalidad" formControlName="nacionalidad"  required readonly>
+                <small  *ngIf="productGroup.controls.stock.errors?.required && productGroup.controls.stock.touched">El stock es requerido</small>
+              </div>
+  
+              <div class="col-sm-3">
+                <img *ngIf="bandera" [src]="bandera" alt="">
+              </div>
+            
+  
+              <div class="col-md-12">
+                <label for="comestible" class="form-label">Comestible</label>
+                <select class="form-select" id="country" formControlName="comestible">
+                  <option value="" disabled>Choose...</option>
+                  <option value="true">Si</option>
+                  <option value="false">No</option>
+                </select>
+                <small  *ngIf="productGroup.controls.stock.errors?.required && productGroup.controls.stock.touched">El stock es requerido</small>
+              </div>
+  
+            </div>
+  
+            <hr class="my-4">
+  
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="same-address">
+              <label class="form-check-label" for="same-address">¿Declara que todos los datos son correctos?</label>
+            </div>
+  
+            <hr class="my-4">
+  
+            <button class="w-100 btn btn-primary btn-lg" type="submit">ALTA</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2017â€“2021 Company Name</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>
+  

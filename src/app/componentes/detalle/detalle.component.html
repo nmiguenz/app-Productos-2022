@@ -1,0 +1,10 @@
+<h2>Detalle</h2>
+<div class="card" style="width: 18rem;" *ngIf="inputProducto">
+    <div class="card-body">
+      <h5 class="card-title"><b>{{inputProducto.descripcion}}</b></h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{inputProducto.codigo}}</h6>
+      <p class="card-text">{{inputProducto.stock}}</p>
+      <p class="card-text">{{inputProducto.comestible}}</p>
+      <p class="card-text"><b>{{inputProducto.precio}}</b></p>
+    </div>
+  </div>

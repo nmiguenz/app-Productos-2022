@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "practica-parcial-productos": {
+      "hosting": {
+        "productos2022": [
+          "practica-parcial-productos"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "practica-parcial-productos"
+  }
+}
